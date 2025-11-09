@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Kalkulator</title>
+<style>
+  body { font-family: Arial; text-align: center; margin-top: 50px; }
+  input { width: 50px; text-align: center; }
+</style>
+</head>
+<body>
+  <h1>Henryka kalkulator</h1>
+  <input id="a" type="number"> 
+  <select id="op">
+    <option>+</option>
+    <option>-</option>
+    <option>*</option>
+    <option>/</option>
+  </select>
+  <input id="b" type="number">
+  <button onclick="oblicz()">=</button>
+  <span id="wynik"></span>
+
+  <script>
+    function oblicz() {
+      const a = parseFloat(document.getElementById('a').value);
+      const b = parseFloat(document.getElementById('b').value);
+      const op = document.getElementById('op').value;
+      let wynik;
+      switch(op) {
+        case '+': wynik = a + b; break;
+        case '-': wynik = a - b; break;
+        case '*': wynik = a * b; break;
+        case '/': wynik = b !== 0 ? a / b : 'Błąd'; break;
+      }
+      document.getElementById('wynik').textContent = wynik;
+    }
+  </script>
+</body>
+</html>
+
